@@ -1,0 +1,65 @@
+<h2>{{dataSource.data.length}} Menu Items</h2>
+
+<div class="spinner-container" *ngIf="dataSource.loading$ | async">
+  <mat-spinner></mat-spinner>
+</div>
+<div class="mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+    <!-- Checkbox Column -->
+    <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Image Column -->
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <img src="{{element.image}}" alt="{{element.name}}" width="50px"> </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> NAME </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Order Type Column -->
+    <ng-container matColumnDef="orderType">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> ORDER TYPE </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.orderType}} </mat-cell>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.price | currency}} </mat-cell>
+    </ng-container>
+
+    <!-- Channel Column -->
+    <ng-container matColumnDef="channel">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> CHANNEL </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <span *ngFor="let item of element.channel">{{item.name}}</span> </mat-cell>
+    </ng-container>
+
+    <!-- Availability Column -->
+    <ng-container matColumnDef="availability">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> AVAILABILITY </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.availability}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
+    </mat-row>
+  </mat-table>
+
+  <!-- Material Datatable Pagination -->
+  <mat-paginator matSort [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 15, 50, 100]">
+  </mat-paginator>
+</div>
