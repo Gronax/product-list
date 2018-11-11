@@ -12,24 +12,22 @@ import { AppService } from 'src/app/services/app.service';
 
 export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['select', 'image', 'name', 'orderType', 'price', 'channel', 'availability'];
-  dataSource = new MatTableDataSource<Product>();
-  selection = new SelectionModel<Product>(true, []);
+  dataSource = new MatTableDataSource < Product > ();
+  selection = new SelectionModel < Product > (true, []);
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService) {}
 
   ngOnInit() {
     /** Getting products from service. */
     this.appService.getProducts().subscribe(
       data => {
-        console.log(data);
         this.dataSource.data = data;
       }
     );
-        console.log(this.dataSource);
-        this.dataSource.sort = this.sort;
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
   }
 
@@ -43,7 +41,7 @@ export class ProductListComponent implements OnInit {
   /** Selects all rows if they are not all selected; otherwise clear selection. */
   masterToggle() {
     this.isAllSelected() ?
-        this.selection.clear() :
-        this.dataSource.data.forEach(row => this.selection.select(row));
+      this.selection.clear() :
+      this.dataSource.data.forEach(row => this.selection.select(row));
   }
 }

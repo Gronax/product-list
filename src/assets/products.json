@@ -1,43 +1,47 @@
 [{
   "image": "https://picsum.photos/800/600/?image=14",
   "name": "Hamburger",
-  "orderType": "",
+  "orderType": true,
   "price": 19,
   "channel": [{
       "id": 1,
-      "name": "Phone"
+      "name": "desktop_mac"
     },
     {
-      "id": 3,
-      "name": "Web"
+      "id": 2,
+      "name": "phone_iphone"
     }
   ],
-  "availability": false
+  "availability": true
 },
 {
   "image": "https://picsum.photos/800/600/?image=88",
   "name": "Cheeseburger",
-  "orderType": "",
+  "orderType": true,
   "price": 2.50,
   "channel": [{
       "id": 1,
-      "name": "Phone"
-    },
-    {
-      "id": 3,
-      "name": "Web"
+      "name": "desktop_mac"
     }
   ],
   "availability": false
 },
 {
   "image": "https://picsum.photos/800/600/?image=45",
-  "name": "Pizza",
-  "orderType": "",
-  "price": 12,
+  "name": "Lahmacun",
+  "orderType": true,
+  "price": 12.99,
   "channel": [{
       "id": 1,
-      "name": "Phone"
+      "name": "desktop_mac"
+    },
+    {
+      "id": 2,
+      "name": "phone_iphone"
+    },
+    {
+      "id": 3,
+      "name": "laptop_mac"
     }
   ],
   "availability": false
@@ -45,47 +49,43 @@
 {
   "image": "https://picsum.photos/800/600/?image=82",
   "name": "Pizza",
-  "orderType": "",
-  "price": 12,
+  "orderType": false,
+  "price": 54,
   "channel": [{
       "id": 1,
-      "name": "Phone"
+      "name": "desktop_mac"
     },
     {
       "id": 3,
-      "name": "Web"
+      "name": "laptop_mac"
     }
   ],
-  "availability": false
+  "availability": true
 },
 {
   "image": "https://picsum.photos/800/600/?image=65",
-  "name": "Pizza",
-  "orderType": "",
+  "name": "Coffe",
+  "orderType": true,
   "price": 12,
   "channel": [{
       "id": 1,
-      "name": "Phone"
+      "name": "desktop_mac"
     },
     {
       "id": 3,
-      "name": "Web"
+      "name": "laptop_mac"
     }
   ],
-  "availability": false
+  "availability": true
 },
 {
   "image": "https://picsum.photos/800/600/?image=81",
-  "name": "Pizza",
-  "orderType": "",
-  "price": 12,
+  "name": "Kebap",
+  "orderType": true,
+  "price": 32,
   "channel": [{
-      "id": 1,
-      "name": "Phone"
-    },
-    {
-      "id": 3,
-      "name": "Web"
+      "id": 2,
+      "name": "phone_iphone"
     }
   ],
   "availability": false

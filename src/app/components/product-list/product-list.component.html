@@ -1,5 +1,4 @@
-<h2>{{dataSource.data.length}} Menu Items</h2>
-
+<h1 class="mat-2">{{dataSource.data.length}} Menu Items</h1>
 <div class="spinner-container" *ngIf="dataSource.loading$ | async">
   <mat-spinner></mat-spinner>
 </div>
@@ -20,8 +19,8 @@
 
     <!-- Image Column -->
     <ng-container matColumnDef="image">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> # </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <img src="{{element.image}}" alt="{{element.name}}" width="50px"> </mat-cell>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>IMAGE </mat-header-cell>
+      <mat-cell *matCellDef="let element"> <img [src]="element.image" alt="{{element.name}}" width="50px"> </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
@@ -33,33 +32,38 @@
     <!-- Order Type Column -->
     <ng-container matColumnDef="orderType">
       <mat-header-cell *matHeaderCellDef mat-sort-header> ORDER TYPE </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.orderType}} </mat-cell>
+      <mat-cell *matCellDef="let element"> <i class="material-icons" [innerText]="element.orderType ? 'add_circle_outline' : 'remove_circle_outline'"></i> </mat-cell>
     </ng-container>
 
     <!-- Price Column -->
     <ng-container matColumnDef="price">
       <mat-header-cell *matHeaderCellDef mat-sort-header> PRICE </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.price | currency}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.price | number : '1.2-2'}} </mat-cell>
     </ng-container>
 
     <!-- Channel Column -->
     <ng-container matColumnDef="channel">
       <mat-header-cell *matHeaderCellDef mat-sort-header> CHANNEL </mat-header-cell>
-      <mat-cell *matCellDef="let element"> <span *ngFor="let item of element.channel">{{item.name}}</span> </mat-cell>
+      <mat-cell *matCellDef="let element"> <i *ngFor="let item of element.channel" class="material-icons">{{item.name}}</i> </mat-cell>
     </ng-container>
 
     <!-- Availability Column -->
     <ng-container matColumnDef="availability">
       <mat-header-cell *matHeaderCellDef mat-sort-header> AVAILABILITY </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.availability}} </mat-cell>
+      <mat-cell *matCellDef="let element">
+          <div *ngIf="element.availability; else elseBlock">
+              <div class="availability-bar active">ACTIVE</div>
+            </div>
+          <ng-template #elseBlock>
+              <div class="availability-bar passive">PASSIVE</div>
+          </ng-template>
+      </mat-cell>
     </ng-container>
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)">
-    </mat-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selection.toggle(row)"></mat-row>
   </mat-table>
 
   <!-- Material Datatable Pagination -->
-  <mat-paginator matSort [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 15, 50, 100]">
-  </mat-paginator>
+  <mat-paginator matSort [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 15, 50, 100]"></mat-paginator>
 </div>

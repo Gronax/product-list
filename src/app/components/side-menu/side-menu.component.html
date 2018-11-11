@@ -1,12 +1,93 @@
-<mat-toolbar color="primary"><i class="material-icons">dashboard</i>&nbsp;DASHBOARD</mat-toolbar>
+<mat-toolbar color="accent">
+  <mat-icon>dashboard</mat-icon>
+  &nbsp;
+  <span>DASHBOARD</span>
+</mat-toolbar>
+<!-- /mat-toolbar -->
 <mat-nav-list>
-  <mat-list-item href="#"><i class="material-icons">star_border</i>&nbsp;LOYALTY</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">assignment</i>&nbsp;PRODUCTS</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">list_alt</i>&nbsp;PRODUCTS</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">ballot</i>&nbsp;PRODUCTS</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">supervisor_account</i>&nbsp;CUSTOMER</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">store_mall_directory</i>&nbsp;STORE</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">photo_album</i>&nbsp;CONTENT</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">settings_input_antenna</i>&nbsp;HOT SPOT</mat-list-item>
-  <mat-list-item href="#"><i class="material-icons">settings</i>&nbsp;SETTINGS</mat-list-item>
+  <mat-accordion multi="true" [displayMode]="displayMode">
+    <mat-expansion-panel class="no-shadow">
+      <mat-expansion-panel-header [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+        <mat-panel-title>
+          <mat-icon>star_border</mat-icon>
+          &nbsp;
+          <span>LOYALTY</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list class="ml-0" dense>
+        <mat-list-item>
+          <a href="#">Loyalty 1</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#">Loyalty 2</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- /mat-accordion -->
+  <mat-list-item href="#">
+    <mat-icon>ballot</mat-icon>
+    &nbsp;
+    <span>PRODUCTS</span>
+  </mat-list-item>
+  <!-- /mat-list-item -->
+  <mat-accordion multi="true" [displayMode]="displayMode">
+    <mat-expansion-panel class="no-shadow">
+      <mat-expansion-panel-header [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+        <mat-panel-title>
+          <mat-icon>supervisor_account</mat-icon>
+          &nbsp;
+          <span>CUSTOMER</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list class="ml-0" dense>
+        <mat-list-item>
+          <a href="#">Customer 1</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#">Customer 2</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- /mat-accordion -->
+  <mat-list-item href="#">
+    <mat-icon>store_mall_directory</mat-icon>
+    &nbsp;
+    <span>STORE</span>
+  </mat-list-item>
+  <!-- /mat-list-item -->
+  <mat-list-item href="#">
+    <mat-icon>book</mat-icon>
+    &nbsp;
+    <span>CONTENT</span>
+  </mat-list-item>
+  <!-- /mat-list-item -->
+  <mat-list-item href="#" class="ml-2">
+    <mat-icon>settings_input_antenna</mat-icon>
+    &nbsp;
+    <span>HOT SPOT</span>
+  </mat-list-item>
+  <!-- /mat-list-item -->
+  <mat-accordion multi="true" [displayMode]="displayMode">
+    <mat-expansion-panel class="no-shadow">
+      <mat-expansion-panel-header [expandedHeight]="expandHeight" [collapsedHeight]="collapseHeight">
+        <mat-panel-title>
+          <mat-icon>settings</mat-icon>
+          &nbsp;
+          <span>SETTINGS</span>
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-nav-list class="ml-0" dense>
+        <mat-list-item>
+          <a href="#">Setting 1</a>
+        </mat-list-item>
+        <mat-list-item>
+          <a href="#">Setting 2</a>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+  </mat-accordion>
+  <!-- /mat-accordion -->
 </mat-nav-list>
+<!-- /mat-nav-list -->

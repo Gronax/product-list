@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material';
+import {MatNativeDateModule, MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,12 +15,15 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { MaterialModule } from './modules/material-module';
 import { AppService } from './services/app.service';
+import { MatBadgeIconDirective } from './directives/app.directive';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
     AppComponent,
     SideMenuComponent,
     ProductListComponent,
+    MatBadgeIconDirective,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +34,12 @@ import { AppService } from './services/app.service';
     MaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   entryComponents: [AppComponent],
   bootstrap: [AppComponent],
