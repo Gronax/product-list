@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Install
 
-Download the project or type `git clone https://github.com/Gronax/product-management-app.git` in command line. Run `npm install` to install local packages.
+Download or clone the project then run `npm install` to install local packages.
 
 ## Development server
 

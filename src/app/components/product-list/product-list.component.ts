@@ -14,6 +14,8 @@ export class ProductListComponent implements OnInit {
   displayedColumns: string[] = ['select', 'image', 'name', 'orderType', 'price', 'channel', 'availability'];
   dataSource = new MatTableDataSource < Product > ();
   selection = new SelectionModel < Product > (true, []);
+  imageUrl: string;
+  isHovering = false;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -43,5 +45,15 @@ export class ProductListComponent implements OnInit {
     this.isAllSelected() ?
       this.selection.clear() :
       this.dataSource.data.forEach(row => this.selection.select(row));
+  }
+
+  mouseHover(imgUrl) {
+      this.isHovering = true;
+      this.imageUrl = imgUrl;
+  }
+
+  mouseLeft() {
+      this.isHovering = false;
+      this.imageUrl = null;
   }
 }
